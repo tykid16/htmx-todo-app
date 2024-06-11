@@ -1,0 +1,16 @@
+<ul>
+  {{ range $index, $item := . }}
+  <li>
+    {{ $item }}
+    <form
+      hx-post="/delete"
+      hx-target="#todo-list"
+      hx-swap="innerHTML"
+      style="display: inline"
+    >
+      <input type="hidden" name="index" value="{{ $index }}" />
+      <button type="submit">Delete</button>
+    </form>
+  </li>
+  {{ end }}
+</ul>
